@@ -1,38 +1,139 @@
-.App {
+/* Reset the default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0db4f; /* Attractive background color */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* App container - made larger */
+.app {
   text-align: center;
+  width: 100%;
+  max-width: 700px; /* Increased the size of the container */
+  margin: 0 auto;
+  background-color: #1d3557; /* Dark blue background for the game area */
+  padding: 40px; /* Increased padding for bigger appearance */
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(-20px); /* Move the heading up slightly */
+  }
+  to {
+    opacity: 1; /* Fully opaque */
+    transform: translateY(0); /* Move back to original position */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Heading Styling */
+h1 {
+  font-size: 2.5rem; /* Font size of the heading */
+  color: white; /* Color of the text */
+  margin-bottom: 30px; /* Space between heading and images */
+  animation: fadeIn 1s ease-in-out; /* Apply the fadeIn animation */
+}
+
+
+/* Choices images */
+.choices {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 30px;
+  margin-bottom: 30px; /* Space between images and score text */
+}
+
+.choice {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.choice img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
+  transition: transform 0.3s ease-in-out;
+}
+
+.choice:hover img {
+  transform: scale(1.1);
+}
+
+/* Scoreboard styling - side by side in the middle */
+.score-board {
+  display: flex;
+  justify-content: center; /* Center the scores */
+  gap: 60px; /* Space between the scores */
+  margin-top: 20px; /* Space between the choices and scores */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.score p:first-child {
+  font-size: 3rem; /* Bigger font size for scores */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.score p:last-child {
+  font-size: 1.5rem; /* You/Computer text */
+}
+
+.msg-container {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease-in-out;
+  margin-top: 30px;
+}
+
+.msg-container.show {
+  opacity: 1; /* Visible when class "show" is added */
+}
+
+
+/* Responsive design for smaller devices */
+@media (max-width: 768px) {
+  .choice img {
+    width: 120px;
+    height: 120px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .score p:first-child {
+    font-size: 2.5rem;
+  }
+
+  .msg-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .choice img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .score p:first-child {
+    font-size: 2rem;
+  }
+
+  .msg-container {
+    width: 100%;
   }
 }

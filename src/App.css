@@ -45,7 +45,6 @@ h1 {
   animation: fadeIn 1s ease-in-out; /* Apply the fadeIn animation */
 }
 
-
 /* Choices images */
 .choices {
   display: flex;

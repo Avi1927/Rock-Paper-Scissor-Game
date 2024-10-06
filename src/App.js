@@ -7,7 +7,7 @@ import "./App.css";
 const App = () => {
   const [userScore, setUserScore] = useState(0);
   const [compScore, setCompScore] = useState(0);
-  const [msg, setMsg] = useState("Play Your Move!!!");
+  const [msg, setMsg] = useState("Play Your Move!!");
   const [msgVisible, setMsgVisible] = useState(true); // Set to true initially to show the message
 
   const genCompChoice = () => {
